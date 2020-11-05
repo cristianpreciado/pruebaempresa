@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usuario</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ usuario.id }}</td>
+            </tr>
+            <tr>
+                <th>Clave</th>
+                <td>{{ usuario.clave }}</td>
+            </tr>
+            <tr>
+                <th>Nombres</th>
+                <td>{{ usuario.nombres }}</td>
+            </tr>
+            <tr>
+                <th>Usuario</th>
+                <td>{{ usuario.usuario }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-default" href="{{ path('usuario_index') }}">Regresar a la lista</a>
+    <a class="btn btn-primary" href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Editar</a>
+    {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Eliminar">
+    {{ form_end(delete_form) }}
+{% endblock %}

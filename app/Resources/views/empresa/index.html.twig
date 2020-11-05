@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista de Empresas</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for empresa in empresas %}
+            <tr>
+                <td><a href="{{ path('empresa_show', { 'id': empresa.id }) }}">{{ empresa.id }}</a></td>
+                <td>{{ empresa.nombre }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('empresa_show', { 'id': empresa.id }) }}">Mostrar</a>
+                    <a class="btn btn-primary" href="{{ path('empresa_edit', { 'id': empresa.id }) }}">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('empresa_new') }}">Crear nueva empresa</a>
+
+{% endblock %}

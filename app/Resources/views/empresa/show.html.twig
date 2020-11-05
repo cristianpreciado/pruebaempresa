@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empresa</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ empresa.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empresa.nombre }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-default" href="{{ path('empresa_index') }}">Regresar a la lista</a>
+    <a class="btn btn-primary" href="{{ path('empresa_edit', { 'id': empresa.id }) }}">Editar</a>
+    {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Eliminar">
+    {{ form_end(delete_form) }}
+{% endblock %}
